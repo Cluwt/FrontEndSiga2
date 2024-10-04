@@ -1,0 +1,261 @@
+/* Estilo para o dashboard Siga 2.0 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+}
+
+.buscar{
+    padding-right: 500px;
+}
+
+.corsidebar{
+    color: white;
+}
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #648fb9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+
+.sidebar .logo {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.sidebar .menu {
+    list-style: none;
+    color: #fff;
+}
+
+.sidebar .menu li {
+    margin: 15px 0;
+}
+
+.sidebar .menu li a {
+    text-decoration: none;
+    color: #bdc3c7;
+    display: block;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.sidebar .menu li a:hover {
+    color: #ecf0f1;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+header input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+header .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+section.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card .botao-pagar {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db;
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.card .botao-pagar:hover {
+    background: #2980b9;
+}
+
+/* Estilos para a seção de atividades */
+.tarefas {
+    margin-top: 30px;
+}
+
+.tarefas h3 {
+    margin-bottom: 15px;
+}
+
+.tarefas table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tarefas table, 
+.tarefas table th, 
+.tarefas table td {
+    border: 1px solid #ccc;
+}
+
+.tarefas table th, 
+.tarefas table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.tarefas table th {
+    background-color: #648fb9;
+    color: #ffffff;
+}
+
+.tarefas table td button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.tarefas table td button:hover {
+    background-color: #2980b9;
+}
+
+/* Animações e Transições */
+
+.sidebar:hover {
+    width: 300px;
+}
+
+.sidebar .menu li a {
+    transition: color 0.3s;
+}
+
+.card {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout responsivo */
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 10px;
+    }
+    .card {
+        width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 100%;
+    }
+    header input[type="text"] {
+        width: 200px;
+    }
+}
+/* Estilo para o footer (marca d'água) */
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: #999;
+    border-top: 1px solid #ccc;
+}
+
+.footer p {
+    margin: 0;
+    font-style: italic;
+}

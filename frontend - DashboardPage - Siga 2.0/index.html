@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Dashboard Siga 2.0</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <h2>Siga 2.0</h2>
+            <br>
+            <h5>Feito por César Rodrigues e Anna Isabelle</h5>
+        </div>
+        <ul class="menu">
+            <hr>
+            <br>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Notas</a></li>
+            <li><a href="#">Matrícula</a></li>
+            <li><a href="#">Calendário</a></li>
+            <li><a href="#">Documentos</a></li>
+            <li><a href="#">Financeiro</a></li>
+            <li><a href="#">Suporte</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Bem-vindo ao Siga 2.0</h1>
+
+            <div class="buscar">
+                <input type="text" placeholder="Buscar...">
+            </div>
+            
+            <div class="user-info">
+                <img src="avatar.jpg" alt="Avatar do Usuário">
+                <span>César Rodrigues - DSM (Tarde)</span>
+            </div>
+        </header>
+
+        <section class="cards">
+            <div class="card">
+                <h3>Próximas Atividades</h3>
+                <ul>
+                    <li>Prova de Estatística Aplicada - 05/10/2024</li>
+                    <li>Entrega de Projeto - 10/10/2024</li>
+                    <li>Atividade de Algoritmo - 15/10/2024</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Status Financeiro</h3>
+                <p>Mensalidade Paga: Setembro/2024</p>
+                <p>Próxima Parcela: 15/10/2024</p>
+                <a href="#" class="botao-pagar">Pagar Agora</a>
+            </div>
+            <div class="card">
+                <h3>Aulas de Hoje</h3>
+                <ul>
+                    <li>Estatística - 08:00h</li>
+                    <li>Algoritmo e Lógica de Programação - 10:00h</li>
+                    <li>Experiência do Usuário - 14:00h</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Resumo de Notas</h3>
+                <canvas id="notasChart" width="400" height="200"></canvas>
+            </div>
+            <div class="card">
+                <h3>Progresso Acadêmico</h3>
+                <canvas id="progressoChart" width="400" height="200"></canvas>
+            </div>
+            <!-- Novo card adicional -->
+            <div class="card">
+                <h3>Notícias Recentes</h3>
+                <ul>
+                    <li>Abertura de Inscrições para Intercâmbio</li>
+                    <li>Semana de Tecnologia - Início 20/10/2024</li>
+                    <li>Palestra de Inovação - 12/10/2024</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção de atividades a serem entregues -->
+        <section class="tarefas">
+            <h3>Atividades a serem Entregues</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID da Matéria</th>
+                        <th>Exercício Resumido</th>
+                        <th>Dia e Horário para Entrega</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>101</td>
+                        <td>Estatística - Prova 1</td>
+                        <td>10/10/2024 - 08:00h</td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Ir para Atividade</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>102</td>
+                        <td>Algoritmos - Lista 2</td>
+                        <td>12/10/2024 - 10:00h</td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Ir para Atividade</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>103</td>
+                        <td>Banco de Dados - Projeto 1</td>
+                        <td>15/10/2024 - 14:00h</td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Ir para Atividade</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>104</td>
+                        <td>UX Design - Case Estudo</td>
+                        <td>18/10/2024 - 16:00h</td>
+                        <td>
+                            <button>Editar</button>
+                            <button>Ir para Atividade</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <footer class="footer">
+            <p>Feito por Anna Isabelle e César Rodrigues</p>
+        </footer>
+        
+    </div>
+
+    <script src="scripts.js"></script>
+    <script>
+        // Gráficos usando Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctxNotas = document.getElementById('notasChart').getContext('2d');
+            const notasChart = new Chart(ctxNotas, {
+                type: 'bar',
+                data: {
+                    labels: ['Estatística', 'Algoritmo e Lógica de Programação', 'Experiência do Usuário', 'Banco de Dados', 'Estrutura de Dados'],
+                    datasets: [{
+                        label: 'Notas',
+                        data: [85, 90, 75, 80, 88],
+                        backgroundColor: 'rgba(52, 152, 219, 0.6)',
+                        borderColor: 'rgba(41, 128, 185, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            const ctxProgresso = document.getElementById('progressoChart').getContext('2d');
+            const progressoChart = new Chart(ctxProgresso, {
+                type: 'line',
+                data: {
+                    labels: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5'],
+                    datasets: [{
+                        label: 'Progresso Acadêmico',
+                        data: [60, 65, 70, 75, 85],
+                        fill: false,
+                        borderColor: 'rgba(46, 204, 113, 1)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
